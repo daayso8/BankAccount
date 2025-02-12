@@ -101,20 +101,51 @@ function checkBalance() {
     const accountExists = arr.find(account => account.accountNumber === accountNumber);
 
     if (accountExists) {
-        return accountExists.accountBalance;
+        console.log('You have $' + accountExists.accountBalance);
+        return assistance();
     } else {
         console.log('Account does not exist');
+        return assistance();
     }
 }
 
 function deposit(): void {
-    const depositNumber = readlineSync.questionInt('Enter amount to deposit: ');
-    
+    const accountNumber = readlineSync.questionInt('Enter account number: ');
+    const accountExists = arr.find(account => account.accountNumber === accountNumber);
+    if (accountExists) {
+        const depositNumber = readlineSync.questionInt('Enter amount to deposit: ');
+        accountExists.accountBalance += depositNumber;
+        saveAccountsData(arr);
+        console.log('Deposit successful!, you have $' + accountExists.accountBalance);
+        return assistance();
+    } else {
+        console.log('Account does not exist');
+        return assistance();
+    }
 }
 
 function withdraw(): void {
+    const accountNumber = readlineSync.questionInt('Enter account number: ');
+    const accountExists = arr.find(account => account.accountNumber === accountNumber);
+    if (accountExists) {
+        const withdrawalNumber = readlineSync.questionInt('Enter amount to deposit: ');
+        accountExists.accountBalance -= withdrawalNumber;
+        if (accountExists.accountBalance < 0) {
+            console.log('Insufficient funds');
+            return assistance();
+        } else {
 
+        
+        saveAccountsData(arr);
+        console.log('Withdrawal successful!, you have $' + accountExists.accountBalance);
+        return assistance();
+        }
+    } else {
+        console.log('Account does not exist');
+        return assistance();
+    }
 }
+
 
 function exit(): void {
 
