@@ -1,0 +1,25 @@
+{
+  "name": "bankaccount",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daayso8/BankAccount.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daayso8/BankAccount/issues"
+  },
+  "homepage": "https://github.com/daayso8/BankAccount#readme",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.13.1",
+    "readline-sync": "^1.4.10",
+    "typescript": "^5.7.3"
+  }
+}
